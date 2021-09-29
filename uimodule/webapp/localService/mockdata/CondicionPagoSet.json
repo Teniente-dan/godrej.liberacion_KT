@@ -1,0 +1,14 @@
+[
+    {
+        "CondicionP": "condicion 1",
+        "Descripcion": "tipo de condicion de pago 1"
+    },
+    {
+        "CondicionP": "condicion 2",
+        "Descripcion": "tipo de condicion de pago 2"
+    },
+    {
+        "CondicionP": "condicion 3",
+        "Descripcion": "tipo de condicion de pago 3"
+    }  
+]

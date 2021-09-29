@@ -1,0 +1,10 @@
+/* Enter your custom styles here */
+.uploaderMargin{
+    margin-left: 1rem!important;
+  }
+
+  .FlexContentList {    
+    border-radius: 0.2rem;    
+    margin-top: 1px ;  
+    margin-bottom: 3px ;
+}

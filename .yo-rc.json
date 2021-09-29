@@ -1,0 +1,21 @@
+{
+  "generator-template-ui5-project": {
+    "projectname": "liberacion",
+    "namespaceUI5": "godrej",
+    "platform": "Static webserver",
+    "viewtype": "XML",
+    "ui5libs": "Content delivery network (SAPUI5)",
+    "newdir": true,
+    "namespaceURI": "godrej",
+    "opa5pos": [
+      "Main"
+    ],
+    "opa5Journeys": [
+      "Main"
+    ],
+    "uimodules": [
+      "uimodule"
+    ],
+    "setupCompleted": true
+  }
+}

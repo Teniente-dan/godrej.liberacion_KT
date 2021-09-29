@@ -1,0 +1,98 @@
+<mvc:View xmlns:f="sap.f"
+  xmlns:form="sap.ui.layout.form"
+  xmlns:core="sap.ui.core"
+  xmlns:fb="sap.ui.comp.filterbar"
+  xmlns:l="sap.ui.layout"
+  xmlns:semantic="sap.f.semantic" controllerName="godrej.liberacion.controller.MainView" displayBlock="true"
+  xmlns="sap.m"
+  xmlns:mvc="sap.ui.core.mvc">
+  <Shell id="_IDGenShell1">
+    <App id="idAppControl">
+      <pages>
+        <semantic:SemanticPage id="masterPage" preserveHeaderStateOnScroll="false" toggleHeaderOnTitleClick="true" headerPinnable="true" titleAreaShrinkRatio="1:1.6:1.6">
+          <semantic:titleHeading>
+            <VBox>
+              <items>
+                <Title id="masterPageTitle" text="{i18n>title}" level="H2" />
+                <Label text="{i18n>subtitle}"/>
+              </items>
+            </VBox>
+          </semantic:titleHeading>
+          <semantic:titleSnappedOnMobile>
+            <Title id="masterPageTitlePhone" text="{i18n>title}" level="H2"/>
+          </semantic:titleSnappedOnMobile>
+          <semantic:headerContent>
+            <fb:FilterBar id="filterbar" reset="onRefresh" search=".onHandleBuscar" useToolbar="false" showRestoreOnFB="true" filterBarExpanded="false" showRestoreButton="true">
+              <fb:filterGroupItems>
+                <fb:FilterGroupItem id="filterPedidoGroup" name="A" label="{i18n>pedido}" groupName="g1" visibleInFilterBar="true" mandatory="true">
+                  <fb:control>
+                    <HBox id="filterPedidoHBox" alignItems="Center">
+                      <items>
+                        <Input id="filterPedidoInput1" placeholder="{i18n>rangoDesde}" change="inputChange"/>
+                        <Label id="filterPedidoHyphen" text="-" class="sapUiTinyMarginBeginEnd"/>
+                        <Input id="filterPedidoInput2" placeholder="{i18n>rangoHasta}" change="inputChange"/>
+                      </items>
+                    </HBox>
+                  </fb:control>
+                </fb:FilterGroupItem>
+                <fb:FilterGroupItem id="filterFechaGroup" name="B" label="{i18n>fecha}" groupName="g1" visibleInFilterBar="true" mandatory="true">
+                  <fb:control>
+                    <DateRangeSelection id="filterFechaDatePicker" class="filterInputs" change="inputChange"/>
+                  </fb:control>
+                </fb:FilterGroupItem>
+              </fb:filterGroupItems>
+            </fb:FilterBar>
+          </semantic:headerContent>
+          <semantic:content >
+            <Table id="mainTable" mode="MultiSelect" items="{
+					path: 'pedidos>/', templateShareable:false
+				}" selectionChange="handleTableSelectionChange" updateFinished="onTableUpdateFinished" >
+              <headerToolbar>
+                <Toolbar >
+                  <Title text="{view>/title}" level="H2"/>
+                  <ToolbarSpacer />
+                  <Button id="headerButApprove" icon="sap-icon://accept" type="Accept" press="onSubmitSel($event, 'Approve')" enabled="false"/>
+                  <Button id="headerButReject" icon="sap-icon://decline" type="Reject" press="onSubmitSel($event, 'Reject')" enabled="false" visible="false"/>
+                </Toolbar>
+              </headerToolbar>
+              <columns>
+                <Column hAlign="Initial" >
+                  <Text id="_IDGenText1" text="{i18n>pedido}"/>
+                </Column>
+                <Column hAlign="Center" minScreenWidth="Medium" demandPopin="true">
+                  <Text id="_IDGenText2" text="{i18n>fechaCreacion}"/>
+                </Column>
+                <Column hAlign="Center" minScreenWidth="Medium" demandPopin="true">
+                  <Text text="{i18n>statusComercial}"/>
+                </Column>
+                <Column hAlign="End" minScreenWidth="Medium" demandPopin="true">
+                  <Text text="{i18n>mainViewView.Aprobacion}"/>
+                </Column>
+               <Column hAlign="End" minScreenWidth="Medium" demandPopin="true">
+                  <Text text="{i18n>lineResultados}"/>
+                </Column>                
+              </columns>
+              <items>
+                <ColumnListItem id="_IDGenColumnListItem1" vAlign="Middle" type="Navigation" detailPress="testo">
+                  <cells>
+                    <Text text="{pedidos>Vbeln}">
+                    </Text>
+                    <Text text="{path: 'pedidos>Erdat',formatter: '.formatter.fooErdat1'}" />
+                    <VBox>
+                      <Text text="{pedidos>StLibcomercial}" />
+                    </VBox>
+                    <HBox class="sapUiSmallMarginEnd">
+                      <ToggleButton id="lineButApprove" icon="sap-icon://accept" type="Accept" class="sapUiTinyMarginEnd" press="onSubmitLine($event, 'Approve')" enabled="{= ${pedidos>StComercialCode} === ${estatus>/approved} ? false : true}"/>
+                      <ToggleButton id="lineButReject" icon="sap-icon://decline" type="Reject" press="onSubmitLine($event, 'Reject')" enabled="{= ${pedidos>StComercialCode} === ${estatus>/approved} ? false : true}" />
+                    </HBox>
+                    <Button id="resButton" text="{i18n>lineResultados}" icon="{pedidos>resIcon}" class="sapUiTinyMarginEnd" enabled="{pedidos>resEnabled}" press="onShowResults"/>
+                  </cells>
+                </ColumnListItem>
+              </items>
+            </Table>
+          </semantic:content>
+        </semantic:SemanticPage>
+      </pages>
+    </App>
+  </Shell>
+</mvc:View>

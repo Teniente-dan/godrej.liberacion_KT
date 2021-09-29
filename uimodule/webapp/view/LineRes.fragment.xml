@@ -1,0 +1,33 @@
+<core:FragmentDefinition xmlns="sap.ui.table"
+    xmlns:m="sap.m"
+    xmlns:core="sap.ui.core">    
+    <m:Dialog id="resDialog"  type="Message"  contentWidth="{= ${device>/system/phone}?'100%':'50%'}"  >
+        <m:Table id="idFragTable" items="{
+					path: 'resData>/',
+                    templateShareable:false 
+                    }">
+            <m:columns>
+                <m:Column id="fragColumn1" hAlign="Initial" />
+                <m:Column id="fragColumn2" hAlign="Center" demandPopin="true" minScreenWidth="600px" />
+                <m:Column id="fragColumn3" hAlign="Center" demandPopin="true" minScreenWidth="800px" />
+                <m:Column id="fragColumn4" hAlign="Initial" demandPopin="true" minScreenWidth="1000px" />
+                <m:Column id="fragColumn5" hAlign="Initial" demandPopin="true" minScreenWidth="1000px" />
+                <m:Column id="fragColumn6" hAlign="End" demandPopin="true" minScreenWidth="1000px" />
+            </m:columns>
+            <m:items>
+                <m:ColumnListItem id="fragColumnListItem">
+                    <m:cells>
+                        <m:HBox id="fragHbox1" alignItems="Center" width="100%">
+                            <m:Label text="{resData>Type}" design="Bold" width="2rem" />
+                            <m:Label text="{resData>Message}" class="sapUiSmallMarginEnd"/>
+                            <m:Label text="{resData>MessageV1}" class="sapUiSmallMarginEnd" />
+                            <m:Label text="{resData>MessageV2}" class="sapUiSmallMarginEnd" />
+                            <m:Label text="{resData>MessageV3}" class="sapUiSmallMarginEnd" />
+                            <m:Label text="{resData>MessageV4}" class="sapUiSmallMarginEnd" />
+                        </m:HBox>
+                    </m:cells>
+                </m:ColumnListItem>
+            </m:items>
+        </m:Table>
+    </m:Dialog>
+</core:FragmentDefinition>

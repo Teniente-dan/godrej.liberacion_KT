@@ -1,0 +1,32 @@
+[
+    {
+        "ClaseP": "CP1",
+        "Descripcion": "Clase de Pedido1",
+        "Usuario": "user1",
+        "Default": ""
+    },
+    {
+        "ClaseP": "CP2",
+        "Descripcion": "Clase de Pedido2",
+        "Usuario": "user2",
+        "Default": ""
+    },    
+    {
+        "ClaseP": "CP3",
+        "Descripcion": "Clase de Pedido3",
+        "Usuario": "user3",
+        "Default": "X"
+    },    
+    {
+        "ClaseP": "CP4",
+        "Descripcion": "Clase de Pedido4",
+        "Usuario": "user4",
+        "Default": ""
+    },    
+    {
+        "ClaseP": "CP5",
+        "Descripcion": "Clase de Pedido5",
+        "Usuario": "user5",
+        "Default": ""
+    }               
+]
